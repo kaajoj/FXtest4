@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <Pane prefHeight="335.0" prefWidth="366.0" GridPane.columnIndex="1">
+            <children>
+                <Button fx:id="testbtn" layoutX="151.0" layoutY="283.0" mnemonicParsing="false" onAction="#testButtonAction" text="Button" />
+                <TextArea fx:id="testTextArea" layoutX="22.0" layoutY="23.0" prefHeight="111.0" prefWidth="129.0" />
+                <TextField layoutX="22.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" fx:id="x" />
+                <TextField fx:id="y" layoutX="71.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" />
+                <TextField layoutX="119.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" />
+                <TextField layoutX="183.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" />
+                <Label layoutX="35.0" layoutY="147.0" text="x" />
+            </children>
+        </Pane>
+    </children>
+</GridPane>
