@@ -22,8 +22,6 @@
             <children>
                 <Button fx:id="testbtn" layoutX="353.0" layoutY="328.0" mnemonicParsing="false" onAction="#testButtonAction" text="Solve" />
                 <TextArea fx:id="testTextArea" layoutX="307.0" layoutY="251.0" prefHeight="63.0" prefWidth="147.0" />
-                <TextField fx:id="zx1" layoutX="20.0" layoutY="82.0" prefHeight="32.0" prefWidth="40.0" />
-                <TextField fx:id="zx2" layoutX="104.0" layoutY="82.0" prefHeight="32.0" prefWidth="32.0" />
                 <TextField fx:id="ox1" layoutX="14.0" layoutY="201.0" prefHeight="32.0" prefWidth="40.0" />
                 <TextField fx:id="ox2" layoutX="87.0" layoutY="202.0" prefHeight="32.0" prefWidth="40.0" />
                 <Label layoutX="36.0" layoutY="47.0" text="Funkcja celu:" />
@@ -34,10 +32,7 @@
             <Label layoutX="139.0" layoutY="207.0" text="x2" />
             <Label layoutX="64.0" layoutY="252.0" text="x1" />
             <Label layoutX="139.0" layoutY="253.0" text="x2" />
-            <TextField fx:id="ox11" layoutX="14.0" layoutY="250.0" prefHeight="32.0" prefWidth="40.0" />
-            <TextField fx:id="ox22" layoutX="87.0" layoutY="250.0" prefHeight="32.0" prefWidth="40.0" />
             <TextField fx:id="oc1" layoutX="207.0" layoutY="202.0" prefHeight="32.0" prefWidth="40.0" />
-            <TextField fx:id="oc2" layoutX="207.0" layoutY="250.0" prefHeight="32.0" prefWidth="40.0" />
             </children>
         </Pane>
     </children>

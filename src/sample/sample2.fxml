@@ -19,11 +19,11 @@
     <children>
         <Pane prefHeight="401.0" prefWidth="480.0" GridPane.columnIndex="1">
             <children>
-                <Button fx:id="test1" layoutX="279.0" layoutY="320.0" mnemonicParsing="false" onAction="#changeView" text="Solve" />
-                <TextField fx:id="countvar" layoutX="22.0" layoutY="108.0" prefHeight="32.0" prefWidth="40.0" />
-                <TextField fx:id="countcons" layoutX="26.0" layoutY="194.0" prefHeight="32.0" prefWidth="40.0" />
-                <Label layoutX="29.0" layoutY="61.0" text="Funkcja celu:" />
-            <Label layoutX="20.0" layoutY="166.0" text="Ograniczenia:" />
+                <Button fx:id="test1" layoutX="212.0" layoutY="317.0" mnemonicParsing="false" onAction="#changeView" text="Solve" />
+                <TextField fx:id="countvar" layoutX="267.0" layoutY="56.0" prefHeight="32.0" prefWidth="55.0" />
+                <TextField fx:id="countcons" layoutX="185.0" layoutY="161.0" prefHeight="32.0" prefWidth="55.0" />
+                <Label layoutX="29.0" layoutY="61.0" text="Podaj liczbę zmiennych w modelu:" />
+            <Label layoutX="20.0" layoutY="166.0" text="Podaj liczbę ograniczeń:" />
             </children>
         </Pane>
     </children>
