@@ -34,13 +34,11 @@ public class Calculations {
         constraints = cons;
     }
 
-    public static String test2(double f1, double f2, double a1, double a2, double b1, double b2, double c1, double c2) {
+    public static String test2(Collection constrains) {
         String res = "";
 
         LinearObjectiveFunction lof = new LinearObjectiveFunction(new double[] { f1, f2}, 0);
-        Collection cons = new ArrayList();
-        cons.add(new LinearConstraint(new double[] { a1, a2 }, Relationship.LEQ, c1));
-        cons.add(new LinearConstraint(new double[] { b1, b2}, Relationship.LEQ, c2));
+        Collection cons = constrains;
 
         LinearConstraintSet lcs = new LinearConstraintSet(cons);
         SimplexSolver simplexSolver = new SimplexSolver();

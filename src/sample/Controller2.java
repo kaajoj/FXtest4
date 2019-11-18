@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -12,8 +11,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.apache.commons.math3.optim.linear.LinearConstraint;
+import org.apache.commons.math3.optim.linear.Relationship;
 
-import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Controller2 extends Calculations {
 
@@ -35,7 +37,6 @@ public class Controller2 extends Calculations {
     public TextField ox22;
     public TextField oc1;
     public TextField oc2;
-
 
     @FXML
     protected void initialize() {
@@ -68,6 +69,11 @@ public class Controller2 extends Calculations {
 
     @FXML
     private void solve(ActionEvent event) {
+        Collection constrains = new ArrayList();
+        ChoiceBox chbox2 = new ChoiceBox();
+        TextField tf2 = new TextField();
+        double[] variables = new double[varco];
+
         for (int i = 0; i < consco; i++) {
 //            String idvbox = vbox.getChildren().get(i).getId();
 //            System.out.println(idvbox);
@@ -77,16 +83,33 @@ public class Controller2 extends Calculations {
                 ObservableList<Node> childsHB = hb2.getChildren();
                 TextField tf = (TextField)childsHB.get(2*j);
                 System.out.println(tf.getText());
+                variables[j] = Double.parseDouble(tf.getText());
+//                System.out.println(variables[j]);
                 if(j==(varco-1)) {
-                    ChoiceBox chbox2 = (ChoiceBox)childsHB.get((2*j)+2);
+                    chbox2 = (ChoiceBox)childsHB.get((2*j)+2);
                     System.out.println(chbox2.getValue());
-                    TextField tf2 = (TextField)childsHB.get((2*j)+3);
+                    tf2 = (TextField)childsHB.get((2*j)+3);
                     System.out.println(tf2.getText());
                 }
             }
+            String relation = (String) chbox2.getValue();
+            Relationship rel = Relationship.LEQ;
+            switch (relation) {
+                case "<=":
+                    rel = Relationship.LEQ;
+                    break;
+                case "=":
+                    rel = Relationship.EQ;
+                    break;
+                case ">=":
+                    rel = Relationship.GEQ;
+                    break;
+            }
+            constrains.add(new LinearConstraint(variables, rel, Double.parseDouble(tf2.getText())));
         }
+        String res = test2(constrains);
+        TextArea.setText(res);
     }
-
 
 //        @FXML
 //    private void testButtonAction(ActionEvent event) {
