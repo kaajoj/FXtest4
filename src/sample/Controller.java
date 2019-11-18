@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -19,12 +18,9 @@ public class Controller {
     public int varco;
     public int consco;
 
-
-
     @FXML
     public TextField countvar;
     public TextField countcons;
-
 
     public void getUserData(){
         varco = Integer.parseInt(countvar.getText());
@@ -34,7 +30,6 @@ public class Controller {
         System.out.println(varco + " " + consco);
         prepareViewData(varco, consco);
     }
-
 
     public void changeView(ActionEvent event) throws IOException {
         getUserData();
@@ -48,6 +43,5 @@ public class Controller {
         window.setTitle("Karol Nowak 2");
         window.show();
     }
-
 
 }

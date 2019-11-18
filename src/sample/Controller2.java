@@ -1,10 +1,12 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -22,7 +24,7 @@ public class Controller2 extends Calculations {
     int consco = constraints;
 
     @FXML
-    public TextArea testTextArea;
+    public TextArea TextArea;
 
     @FXML
     public TextField zx1;
@@ -37,16 +39,28 @@ public class Controller2 extends Calculations {
 
     @FXML
     protected void initialize() {
+        ObservableList<String> signs = FXCollections.observableArrayList("<=", "=", ">=");
+
         for (int i = 1; i <= consco; i++) {
             HBox hb = new HBox();
             hb.setId(String.valueOf(i));
                 for (int j = 1; j <= varco; j++) {
                     TextField tf = new TextField();
                     tf.setId(String.valueOf(i+j));
+                    tf.setPrefWidth(55);
                     Label lab = new Label("x"+j);
                     hb.getChildren().addAll(tf,lab);
                     hb.setSpacing(5);
                 }
+//            Label labempty = new Label();
+//            labempty.setPrefWidth(50);
+            ChoiceBox chbox = new ChoiceBox();
+            chbox.setPrefWidth(55);
+            chbox.setItems(signs);
+            chbox.setValue("<=");
+            TextField tflast = new TextField();
+            tflast.setPrefWidth(55);
+            hb.getChildren().addAll(chbox,tflast);
             vbox.getChildren().add(hb);
         }
 
@@ -63,7 +77,12 @@ public class Controller2 extends Calculations {
                 ObservableList<Node> childsHB = hb2.getChildren();
                 TextField tf = (TextField)childsHB.get(2*j);
                 System.out.println(tf.getText());
-
+                if(j==(varco-1)) {
+                    ChoiceBox chbox2 = (ChoiceBox)childsHB.get((2*j)+2);
+                    System.out.println(chbox2.getValue());
+                    TextField tf2 = (TextField)childsHB.get((2*j)+3);
+                    System.out.println(tf2.getText());
+                }
             }
         }
     }
@@ -82,7 +101,7 @@ public class Controller2 extends Calculations {
 //            double roc1 = Double.parseDouble(oc1.getText());
 //            double roc2 = Double.parseDouble(oc2.getText());
 //            String res = test2(rzx1, rzx2, rox1, rox2, rox11, rox22, roc1, roc2);
-//            testTextArea.setText(res);
+//            TextArea.setText(res);
 //        } catch (NumberFormatException e) {
 //            e.printStackTrace();
 //        }
