@@ -26,6 +26,13 @@ public class Calculations {
 //        System.out.println("x ="+x+" y = "+y+" min="+min);
 //    }
 
+    public static void prepareViewData(int variables, int constraints){
+        for (int i = 0; i < variables; i++) {
+
+        }
+    }
+
+
     public static String test2(double f1, double f2, double a1, double a2, double b1, double b2, double c1, double c2) {
         String res = "";
 

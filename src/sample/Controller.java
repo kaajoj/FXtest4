@@ -3,22 +3,29 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
 
 import java.io.IOException;
 
+import static sample.Calculations.prepareViewData;
 import static sample.Calculations.test2;
 
 public class Controller {
 
-    public int varcount;
-    public int conscount;
+    public int varco;
+    public int consco;
 
     @FXML
     public TextArea testTextArea;
@@ -37,43 +44,53 @@ public class Controller {
     public TextField countvar;
     public TextField countcons;
 
-    @FXML
-    private void testButtonAction(ActionEvent event) {
-        // Button was clicked, do something…
+//    @FXML
+//    public HBox hbox1;
+//    private TableView tab;
+//    private TableColumn tabcol;
+
+//    @FXML
+//    private void testButtonAction(ActionEvent event) {
 //            String text = testTextArea.getText();
 //            System.out.println(text);
 //        testTextArea.setText("Test\n");
-//        System.out.println("test123");
-//            int a = Integer.parseInt(x.getText());
-//            int b = Integer.parseInt(y.getText());
-//            int sum = a+b;
-//            System.out.println(sum);
 //        test();
-        try {
-            double rzx1 = Double.parseDouble(zx1.getText());
-            double rzx2 = Double.parseDouble(zx2.getText());
-            double rox1 = Double.parseDouble(ox1.getText());
-            double rox2 = Double.parseDouble(ox2.getText());
-            double rox11 = Double.parseDouble(ox11.getText());
-            double rox22 = Double.parseDouble(ox22.getText());
-            double roc1 = Double.parseDouble(oc1.getText());
-            double roc2 = Double.parseDouble(oc2.getText());
-            String res = test2(rzx1, rzx2, rox1, rox2, rox11, rox22, roc1, roc2);
-            testTextArea.setText(res);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-    }
+
+//        try {
+//            double rzx1 = Double.parseDouble(zx1.getText());
+//            double rzx2 = Double.parseDouble(zx2.getText());
+//            double rox1 = Double.parseDouble(ox1.getText());
+//            double rox2 = Double.parseDouble(ox2.getText());
+//            double rox11 = Double.parseDouble(ox11.getText());
+//            double rox22 = Double.parseDouble(ox22.getText());
+//            double roc1 = Double.parseDouble(oc1.getText());
+//            double roc2 = Double.parseDouble(oc2.getText());
+//            String res = test2(rzx1, rzx2, rox1, rox2, rox11, rox22, roc1, roc2);
+//            testTextArea.setText(res);
+//        } catch (NumberFormatException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void getUserData(){
-        varcount = Integer.parseInt(countvar.getText());
-        conscount = Integer.parseInt(countcons.getText());
-        System.out.println(varcount + " " + conscount);
+        varco = Integer.parseInt(countvar.getText());
+        consco = Integer.parseInt(countcons.getText());
+        if(varco<0) varco = 0;
+        if(consco<0) consco = 0;
+        System.out.println(varco + " " + consco);
+//        createView(varco,consco);
     }
+
+
+//    public void createView(int varco, int consco){
+//    prepareViewData(varco, consco);
+
+//    }
 
     public void changeView(ActionEvent event) throws IOException {
         getUserData();
-        Parent viewParent = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+        Parent viewParent = FXMLLoader.load(getClass().getResource("sample3.fxml"));
         Scene viewScene = new Scene(viewParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -81,5 +98,8 @@ public class Controller {
         window.setScene(viewScene);
         window.show();
     }
+
+
+
 
 }
