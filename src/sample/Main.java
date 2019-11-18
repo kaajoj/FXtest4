@@ -14,11 +14,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
 //        Parent root2 = FXMLLoader.load(getClass().getResource("sample1.fxml"));
         primaryStage.setTitle("Karol Nowak 1");
-        primaryStage.setScene(new Scene(root, 660, 440));
+        primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();
-
-//        secondaryStage.setTitle("Karol Nowak 2");
-//        secondaryStage.setScene(new Scene(root, 600, 400));
 
     }
 

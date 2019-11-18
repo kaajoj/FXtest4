@@ -40,10 +40,12 @@ public class Controller {
         getUserData();
 
         Parent viewParent = FXMLLoader.load(getClass().getResource("sample3.fxml"));
-        Scene viewScene = new Scene(viewParent);
+        Scene viewScene = new Scene(viewParent, 800, 600);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(viewScene);
+
+        window.setTitle("Karol Nowak 2");
         window.show();
     }
 
