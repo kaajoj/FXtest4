@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Calculations {
+    public static int variables = 0;
+    public static int constraints = 0;
+
 //    public static void test() {
 //        LinearObjectiveFunction lof = new LinearObjectiveFunction(new double[] { 340, 404}, 0);
 //        Collection cons = new ArrayList();
@@ -26,10 +29,9 @@ public class Calculations {
 //        System.out.println("x ="+x+" y = "+y+" min="+min);
 //    }
 
-    public static void prepareViewData(int variables, int constraints){
-        for (int i = 0; i < variables; i++) {
-
-        }
+    public static void prepareViewData(int var, int cons){
+        variables = var;
+        constraints = cons;
     }
 
 

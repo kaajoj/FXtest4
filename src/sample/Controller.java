@@ -78,14 +78,9 @@ public class Controller {
         if(varco<0) varco = 0;
         if(consco<0) consco = 0;
         System.out.println(varco + " " + consco);
-//        createView(varco,consco);
+        prepareViewData(varco, consco);
     }
 
-
-//    public void createView(int varco, int consco){
-//    prepareViewData(varco, consco);
-
-//    }
 
     public void changeView(ActionEvent event) throws IOException {
         getUserData();

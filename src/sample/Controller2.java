@@ -4,14 +4,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-public class Controller2 {
+public class Controller2 extends Calculations {
 
     @FXML
     public HBox hbox1;
-
+    
     @FXML
     protected void initialize() {
-        for (int i = 0; i < 3; i++) {
+        int varco = variables;
+        int consco = constraints;
+        for (int i = 0; i < varco; i++) {
             hbox1.getChildren().add(new Button("Click me!"));
             //        TextField tf1 = new TextField ();
             //        Label lab1 = new Label("x:");
@@ -19,6 +21,8 @@ public class Controller2 {
             //        ((Group) viewScene.getRoot()).getChildren().addAll(hbox1);
             //        hbox1.setSpacing(10);
 
+//            varco;
+//            consco
         }
 
     }
