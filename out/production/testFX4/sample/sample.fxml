@@ -18,15 +18,26 @@
         <RowConstraints />
     </rowConstraints>
     <children>
-        <Pane prefHeight="335.0" prefWidth="366.0" GridPane.columnIndex="1">
+        <Pane prefHeight="401.0" prefWidth="480.0" GridPane.columnIndex="1">
             <children>
-                <Button fx:id="testbtn" layoutX="151.0" layoutY="283.0" mnemonicParsing="false" onAction="#testButtonAction" text="Button" />
-                <TextArea fx:id="testTextArea" layoutX="22.0" layoutY="23.0" prefHeight="111.0" prefWidth="129.0" />
-                <TextField layoutX="22.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" fx:id="x" />
-                <TextField fx:id="y" layoutX="71.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" />
-                <TextField layoutX="119.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" />
-                <TextField layoutX="183.0" layoutY="168.0" prefHeight="32.0" prefWidth="32.0" />
-                <Label layoutX="35.0" layoutY="147.0" text="x" />
+                <Button fx:id="testbtn" layoutX="279.0" layoutY="320.0" mnemonicParsing="false" onAction="#testButtonAction" text="Solve" />
+                <TextArea fx:id="testTextArea" layoutX="262.0" layoutY="61.0" prefHeight="126.0" prefWidth="152.0" />
+                <TextField fx:id="zx1" layoutX="22.0" layoutY="108.0" prefHeight="32.0" prefWidth="40.0" />
+                <TextField fx:id="zx2" layoutX="87.0" layoutY="108.0" prefHeight="32.0" prefWidth="32.0" />
+                <TextField fx:id="ox1" layoutX="14.0" layoutY="201.0" prefHeight="32.0" prefWidth="40.0" />
+                <TextField fx:id="ox2" layoutX="87.0" layoutY="202.0" prefHeight="32.0" prefWidth="40.0" />
+                <Label layoutX="29.0" layoutY="61.0" text="Funkcja celu:" />
+            <Label layoutX="63.0" layoutY="114.0" text="x1" />
+            <Label layoutX="132.0" layoutY="114.0" text="x2" />
+            <Label layoutX="20.0" layoutY="166.0" text="Ograniczenia:" />
+            <Label layoutX="64.0" layoutY="207.0" text="x1" />
+            <Label layoutX="139.0" layoutY="207.0" text="x2" />
+            <Label layoutX="64.0" layoutY="252.0" text="x1" />
+            <Label layoutX="139.0" layoutY="253.0" text="x2" />
+            <TextField fx:id="ox11" layoutX="14.0" layoutY="250.0" prefHeight="32.0" prefWidth="40.0" />
+            <TextField fx:id="ox22" layoutX="87.0" layoutY="250.0" prefHeight="32.0" prefWidth="40.0" />
+            <TextField fx:id="oc1" layoutX="207.0" layoutY="202.0" prefHeight="32.0" prefWidth="40.0" />
+            <TextField fx:id="oc2" layoutX="207.0" layoutY="250.0" prefHeight="32.0" prefWidth="40.0" />
             </children>
         </Pane>
     </children>

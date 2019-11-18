@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <Pane prefHeight="401.0" prefWidth="480.0" GridPane.columnIndex="1">
+            <children>
+                <Button fx:id="test1" layoutX="279.0" layoutY="320.0" mnemonicParsing="false" onAction="#changeView" text="Solve" />
+                <TextField fx:id="countvar" layoutX="22.0" layoutY="108.0" prefHeight="32.0" prefWidth="40.0" />
+                <TextField fx:id="countcons" layoutX="26.0" layoutY="194.0" prefHeight="32.0" prefWidth="40.0" />
+                <Label layoutX="29.0" layoutY="61.0" text="Funkcja celu:" />
+            <Label layoutX="20.0" layoutY="166.0" text="Ograniczenia:" />
+            </children>
+        </Pane>
+    </children>
+</GridPane>
