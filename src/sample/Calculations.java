@@ -4,40 +4,21 @@ import org.apache.commons.math3.optim.PointValuePair;
 import org.apache.commons.math3.optim.linear.*;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Calculations {
     public static int variables = 0;
     public static int constraints = 0;
 
-//    public static void test() {
-//        LinearObjectiveFunction lof = new LinearObjectiveFunction(new double[] { 340, 404}, 0);
-//        Collection cons = new ArrayList();
-//        cons.add(new LinearConstraint(new double[] { 420, 760 }, Relationship.LEQ, 5480));
-//        cons.add(new LinearConstraint(new double[] { 9, 5 }, Relationship.LEQ, 61));
-//
-//        LinearConstraintSet lcs = new LinearConstraintSet(cons);
-//        SimplexSolver simplexSolver = new SimplexSolver();
-//
-//        PointValuePair result = simplexSolver.optimize(lof, lcs, GoalType.MAXIMIZE);
-//
-//        double x = result.getPoint()[0];
-//        double y = result.getPoint()[1];
-//        double min = result.getValue();
-//
-//        System.out.println("x ="+x+" y = "+y+" min="+min);
-//    }
-
     public static void prepareViewData(int var, int cons){
         variables = var;
         constraints = cons;
     }
 
-    public static String test2(Collection constrains) {
+    public static String test2(Collection constrains, LinearObjectiveFunction lofInput) {
         String res = "";
 
-        LinearObjectiveFunction lof = new LinearObjectiveFunction(new double[] { f1, f2}, 0);
+        LinearObjectiveFunction lof = lofInput;
         Collection cons = constrains;
 
         LinearConstraintSet lcs = new LinearConstraintSet(cons);
@@ -45,12 +26,14 @@ public class Calculations {
 
         PointValuePair result = simplexSolver.optimize(lof, lcs, GoalType.MAXIMIZE);
 
-        double x = result.getPoint()[0];
-        double y = result.getPoint()[1];
-        double min = result.getValue();
+        double x1 = result.getPoint()[0];
+        double x2 = result.getPoint()[1];
+//        double x3 = result.getPoint()[2];
+//        double x4 = result.getPoint()[3];
+        double minMax = result.getValue();
 
-        System.out.println("x ="+x+" y = "+y+" min="+min);
-        res = x + " " + " " + y + " " + min;
+        System.out.println("x1 ="+x1+"  x2 = "+x2+" "+minMax);
+        res = "Rozwiązania optymalne: x1 = "+x1+"  x2 = "+x2+"\nFunkcja celu: "+minMax;
         return res;
     }
 
