@@ -40,7 +40,7 @@ public class Controller {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(viewScene);
 
-        window.setTitle("Karol Nowak 2");
+        window.setTitle("Karol Nowak");
         window.show();
     }
 

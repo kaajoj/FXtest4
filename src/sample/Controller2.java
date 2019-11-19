@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import org.apache.commons.math3.optim.linear.LinearConstraint;
 import org.apache.commons.math3.optim.linear.LinearObjectiveFunction;
 import org.apache.commons.math3.optim.linear.Relationship;
+import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,8 +32,12 @@ public class Controller2 extends Calculations {
     public TextArea TextArea;
 
     @FXML
+    public ChoiceBox choiceBoxGoal;
+
+    @FXML
     protected void initialize() {
         ObservableList<String> signs = FXCollections.observableArrayList("<=", "=", ">=");
+        ObservableList<String> goals = FXCollections.observableArrayList("max", "min");
 
         for (int i = 1; i <= consco; i++) {
             HBox hb = new HBox();
@@ -61,7 +66,8 @@ public class Controller2 extends Calculations {
             hb.getChildren().addAll(chbox,tflast);
             vbox.getChildren().add(hb);
         }
-
+        choiceBoxGoal.setItems(goals);
+        choiceBoxGoal.setValue("max");
     }
 
     @FXML
@@ -112,10 +118,20 @@ public class Controller2 extends Calculations {
             }
             constrains.add(new LinearConstraint(variables, rel, Double.parseDouble(tf2.getText())));
         }
-
         lof = new LinearObjectiveFunction(objFunVars, 0);
 
-        String res = test2(constrains, lof);
+        String goal = (String) choiceBoxGoal.getValue();
+        GoalType goealType =  GoalType.MAXIMIZE;
+        switch (goal) {
+            case "max":
+                goealType = GoalType.MAXIMIZE;
+                break;
+            case "min":
+                goealType = GoalType.MINIMIZE;
+                break;
+        }
+
+        String res = calculate(constrains, lof, goealType);
         TextArea.setText(res);
     }
 

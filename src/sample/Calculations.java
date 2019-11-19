@@ -15,8 +15,8 @@ public class Calculations {
         constraints = cons;
     }
 
-    public static String test2(Collection constrains, LinearObjectiveFunction lofInput) {
-        String res = "";
+    public static String calculate(Collection constrains, LinearObjectiveFunction lofInput, GoalType goealType) {
+        String res;
 
         LinearObjectiveFunction lof = lofInput;
         Collection cons = constrains;
@@ -24,7 +24,8 @@ public class Calculations {
         LinearConstraintSet lcs = new LinearConstraintSet(cons);
         SimplexSolver simplexSolver = new SimplexSolver();
 
-        PointValuePair result = simplexSolver.optimize(lof, lcs, GoalType.MAXIMIZE);
+        PointValuePair result = simplexSolver.optimize(lof, lcs, goealType);
+        System.out.println(result.toString());
 
         double x1 = result.getPoint()[0];
         double x2 = result.getPoint()[1];
