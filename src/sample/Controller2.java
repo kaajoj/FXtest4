@@ -45,24 +45,34 @@ public class Controller2 extends Calculations {
                 for (int j = 1; j <= varco; j++) {
                     TextField tf = new TextField();
                     tf.setId(String.valueOf(i+j));
-                    tf.setPrefWidth(55);
+                    tf.setPrefWidth(60);
                     Label lab = new Label("x"+j);
                     hb.getChildren().addAll(tf,lab);
+                    if(j < varco) {
+                        Label labPlus2 = new Label("+");
+                        hb.getChildren().add(labPlus2);
+                    }
                     hb.setSpacing(5);
 
                     if(i==1) {
                         TextField tf2 = new TextField();
-                        tf2.setPrefWidth(55);
+                        tf2.setPrefWidth(60);
                         Label lab2 = new Label("x" + j);
                         hbox.getChildren().addAll(tf2, lab2);
+                        if(j < varco) {
+                            Label labPlus = new Label("+");
+                            hbox.getChildren().add(labPlus);
+                        }
                     }
                 }
+            hbox.setSpacing(5);
+
             ChoiceBox chbox = new ChoiceBox();
             chbox.setPrefWidth(55);
             chbox.setItems(signs);
             chbox.setValue("<=");
             TextField tflast = new TextField();
-            tflast.setPrefWidth(55);
+            tflast.setPrefWidth(60);
             hb.getChildren().addAll(chbox,tflast);
             vbox.getChildren().add(hb);
         }
