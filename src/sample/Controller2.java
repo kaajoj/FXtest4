@@ -96,19 +96,19 @@ public class Controller2 extends Calculations {
                 ObservableList<Node> childsVB = vbox.getChildren();
                 HBox hb2 = (HBox)childsVB.get(i);
                 ObservableList<Node> childsHB = hb2.getChildren();
-                TextField tf = (TextField)childsHB.get(2*j);
+                TextField tf = (TextField)childsHB.get((2*j)+j);
                 System.out.println(tf.getText());
                 variables[j] = Double.parseDouble(tf.getText());
 //                System.out.println(variables[j]);
                 if(j==(varco-1)) {
-                    chbox2 = (ChoiceBox)childsHB.get((2*j)+2);
+                    chbox2 = (ChoiceBox)childsHB.get((2*j)+j+2);
                     System.out.println(chbox2.getValue());
-                    tf2 = (TextField)childsHB.get((2*j)+3);
+                    tf2 = (TextField)childsHB.get((2*j)+j+3);
                     System.out.println(tf2.getText());
                 }
                 if(i==1) {
                     ObservableList<Node> childsHB2 = hbox.getChildren();
-                    TextField tf3 = (TextField)childsHB2.get(2*j);
+                    TextField tf3 = (TextField)childsHB2.get((2*j)+j);
 //                    System.out.println(tf3.getText());
                     objFunVars[j] = Double.parseDouble(tf3.getText());
                 }
@@ -131,17 +131,17 @@ public class Controller2 extends Calculations {
         lof = new LinearObjectiveFunction(objFunVars, 0);
 
         String goal = (String) choiceBoxGoal.getValue();
-        GoalType goealType =  GoalType.MAXIMIZE;
+        GoalType goalType =  GoalType.MAXIMIZE;
         switch (goal) {
             case "max":
-                goealType = GoalType.MAXIMIZE;
+                goalType = GoalType.MAXIMIZE;
                 break;
             case "min":
-                goealType = GoalType.MINIMIZE;
+                goalType = GoalType.MINIMIZE;
                 break;
         }
 
-        String res = calculate(constrains, lof, goealType);
+        String res = calculate(constrains, lof, goalType);
         TextArea.setText(res);
     }
 
