@@ -25,13 +25,12 @@ public class Calculations {
         SimplexSolver simplexSolver = new SimplexSolver();
 
         PointValuePair result = simplexSolver.optimize(lof, lcs, goealType);
-        System.out.println(result.toString());
 
-        double x1 = result.getPoint()[0];
-        double x2 = result.getPoint()[1];
+        double x1 = Math.round(result.getPoint()[0]);
+        double x2 = Math.round(result.getPoint()[1]);
 //        double x3 = result.getPoint()[2];
 //        double x4 = result.getPoint()[3];
-        double minMax = result.getValue();
+        double minMax = Math.round(result.getValue());
 
         System.out.println("x1 ="+x1+"  x2 = "+x2+" "+minMax);
         res = "Rozwiązania optymalne: x1 = "+x1+"  x2 = "+x2+"\nFunkcja celu: "+minMax;
