@@ -6,6 +6,7 @@ import org.apache.commons.math3.optim.linear.LinearObjectiveFunction;
 import org.apache.commons.math3.optim.linear.SimplexSolver;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
+import java.sql.SQLOutput;
 import java.util.Collection;
 
 public class Calculations {
@@ -18,11 +19,8 @@ public class Calculations {
     }
 
     public static String calculate(Collection constrains, LinearObjectiveFunction lofInput, GoalType goalType) {
-        String res;
-        double x1=0;
-        double x2=0;
-        double x3=0;
-        double x4=0;
+        String res = "Rozwiązania optymalne: ";
+        double[] xVals = new double[variables];
 
         LinearObjectiveFunction lof = lofInput;
         Collection cons = constrains;
@@ -32,29 +30,27 @@ public class Calculations {
 
         PointValuePair result = simplexSolver.optimize(lof, lcs, goalType);
 
-        try {
-            x1 = Math.round(result.getPoint()[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int i = 0; i < variables; i++) {
+            try {
+                xVals[i] = Math.round(result.getPoint()[i]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        try {
-            x2 = Math.round(result.getPoint()[1]);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-//        try {
-//            x3 = result.getPoint()[2];
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            x4 = result.getPoint()[3];
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
         double minMax = Math.round(result.getValue());
-        System.out.println("x1 ="+x1+"  x2 = "+x2+" "+minMax);
-        res = "Rozwiązania optymalne: x1 = "+x1+"  x2 = "+x2+"\nFunkcja celu: "+minMax;
+
+        for (int i = 0; i < xVals.length; i++) {
+            int j = i + 1;
+            System.out.println("x"+j+""+xVals[i]);
+            res += "x"+j+" = "+xVals[i]+"  ";
+        }
+        res += "\nFunkcja celu: "+minMax;
+        System.out.println(minMax);
+        System.out.println(res);
+
+//        System.out.println("x1 ="+x1+"  x2 = "+x2+" x3 = "+x3+" "+minMax);
+//        res = "Rozwiązania optymalne: x1 = "+x1+"  x2 = "+x2+ " x3 = "+x3+"\nFunkcja celu: "+minMax;
         return res;
     }
 

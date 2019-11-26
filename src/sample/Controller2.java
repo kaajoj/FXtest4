@@ -56,7 +56,7 @@ public class Controller2 extends Calculations {
 
                     if(i==1) {
                         TextField tf2 = new TextField();
-                        tf2.setPrefWidth(60);
+                        tf2.setPrefWidth(70);
                         Label lab2 = new Label("x" + j);
                         hbox.getChildren().addAll(tf2, lab2);
                         if(j < varco) {

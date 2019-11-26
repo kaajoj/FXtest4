@@ -22,14 +22,14 @@
     <children>
         <Pane prefHeight="600.0" prefWidth="800.0" GridPane.columnIndex="1">
             <children>
-                <Button fx:id="solvebtn" layoutX="372.0" layoutY="447.0" mnemonicParsing="false" onAction="#solve" text="Solve" />
+                <Button fx:id="solvebtn" layoutX="372.0" layoutY="447.0" mnemonicParsing="false" onAction="#solve" text="Oblicz" />
                 <TextArea fx:id="TextArea" layoutX="17.0" layoutY="494.0" prefHeight="65.0" prefWidth="735.0" />
                 <Label layoutX="22.0" layoutY="21.0" text="Funkcja celu:" />
             <Label layoutX="30.0" layoutY="124.0" text="Ograniczenia:" />
             <Label layoutX="19.0" layoutY="69.0" text="z =" />
             <VBox fx:id="vbox" layoutX="22.0" layoutY="154.0" prefHeight="132.0" prefWidth="757.0" />
             <HBox fx:id="hbox" layoutX="46.0" layoutY="64.0" prefHeight="31.0" prefWidth="610.0" />
-            <ChoiceBox fx:id="choiceBoxGoal" layoutX="120.0" layoutY="16.0" prefHeight="31.0" prefWidth="80.0" />
+            <ChoiceBox fx:id="choiceBoxGoal" layoutX="150.0" layoutY="16.0" prefHeight="31.0" prefWidth="80.0" />
             </children>
         </Pane>
     </children>
