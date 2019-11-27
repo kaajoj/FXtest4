@@ -98,7 +98,7 @@ public class Controller2 extends Calculations {
                 ObservableList<Node> childsHB = hb2.getChildren();
                 TextField tf = (TextField)childsHB.get((2*j)+j);
                 System.out.println(tf.getText());
-                variables[j] = Double.parseDouble(tf.getText());
+                variables[j] = Math.round(Double.parseDouble(tf.getText()));
 //                System.out.println(variables[j]);
                 if(j==(varco-1)) {
                     chbox2 = (ChoiceBox)childsHB.get((2*j)+j+2);
@@ -110,7 +110,7 @@ public class Controller2 extends Calculations {
                     ObservableList<Node> childsHB2 = hbox.getChildren();
                     TextField tf3 = (TextField)childsHB2.get((2*j)+j);
 //                    System.out.println(tf3.getText());
-                    objFunVars[j] = Double.parseDouble(tf3.getText());
+                    objFunVars[j] = Math.round(Double.parseDouble(tf3.getText()));
                 }
             }
             String relation = (String) chbox2.getValue();
@@ -126,7 +126,7 @@ public class Controller2 extends Calculations {
                     rel = Relationship.GEQ;
                     break;
             }
-            constrains.add(new LinearConstraint(variables, rel, Double.parseDouble(tf2.getText())));
+            constrains.add(new LinearConstraint(variables, rel, Math.round(Double.parseDouble(tf2.getText()))));
         }
         lof = new LinearObjectiveFunction(objFunVars, 0);
 

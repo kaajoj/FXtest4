@@ -1,12 +1,13 @@
 package sample;
 
+import org.apache.commons.math3.exception.TooManyIterationsException;
 import org.apache.commons.math3.optim.PointValuePair;
 import org.apache.commons.math3.optim.linear.LinearConstraintSet;
 import org.apache.commons.math3.optim.linear.LinearObjectiveFunction;
+import org.apache.commons.math3.optim.linear.NonNegativeConstraint;
 import org.apache.commons.math3.optim.linear.SimplexSolver;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
-import java.sql.SQLOutput;
 import java.util.Collection;
 
 public class Calculations {
@@ -18,9 +19,10 @@ public class Calculations {
         constraints = cons;
     }
 
-    public static String calculate(Collection constrains, LinearObjectiveFunction lofInput, GoalType goalType) {
+    public static String calculate(Collection<Double> constrains, LinearObjectiveFunction lofInput, GoalType goalType) {
         String res = "Rozwiązania optymalne: ";
         double[] xVals = new double[variables];
+        NonNegativeConstraint nonNegativeConstraint = new NonNegativeConstraint(true);
 
         LinearObjectiveFunction lof = lofInput;
         Collection cons = constrains;
@@ -28,7 +30,7 @@ public class Calculations {
         LinearConstraintSet lcs = new LinearConstraintSet(cons);
         SimplexSolver simplexSolver = new SimplexSolver();
 
-        PointValuePair result = simplexSolver.optimize(lof, lcs, goalType);
+        PointValuePair result = simplexSolver.optimize(lof, lcs, goalType, nonNegativeConstraint);
 
         for (int i = 0; i < variables; i++) {
             try {
